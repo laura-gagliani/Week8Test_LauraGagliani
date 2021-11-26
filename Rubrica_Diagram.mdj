@@ -425,7 +425,7 @@
 								"reference": {
 									"$ref": "AAAAAAF9W1fHhPLJxZc="
 								},
-								"cardinality": "1..*"
+								"cardinality": "0..*"
 							}
 						}
 					],
