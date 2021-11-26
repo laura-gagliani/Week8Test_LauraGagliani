@@ -19,5 +19,8 @@ namespace Rubrica.Core.Entities
 
         public int IdContatto { get; set; }
         public Contatto Contatto { get; set; }
+
+
+        
     }
 }

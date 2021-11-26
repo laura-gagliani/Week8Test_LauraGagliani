@@ -10,6 +10,14 @@ namespace Rubrica.RepositoryMock
 {
     public class ContattiMock : IRepositoryContatti
     {
+        public static List<Contatto> contatti = new List<Contatto>()
+        {
+            new Contatto{IdContatto = 1, Nome = "Mario", Cognome = "Rossi"},
+            new Contatto{IdContatto = 2, Nome = "Sara", Cognome = "Bianchi"},
+            new Contatto{IdContatto = 3, Nome = "Luca", Cognome = "Verdi"},
+
+        };
+
         public Contatto Add(Contatto item)
         {
             throw new NotImplementedException();
@@ -17,7 +25,7 @@ namespace Rubrica.RepositoryMock
 
         public List<Contatto> GetAll()
         {
-            throw new NotImplementedException();
+            return contatti;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Rubrica.Core.RepoInterfaces;
+﻿using Rubrica.Core.Entities;
+using Rubrica.Core.RepoInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,14 @@ namespace Rubrica.Core.BusinessLayer
         //costruttore mbl che associa le Irepo
         public MainBusinessLayer(IRepositoryContatti iRepoContatti, IRepositoryIndirizzi iRepoIndirizzi)
         {
-            iRepoContatti = repoContatti;
-            iRepoIndirizzi = repoIndirizzi;
+            repoContatti = iRepoContatti;
+            repoIndirizzi = iRepoIndirizzi;
         }
 
+        public List<Contatto> GetAllContatti()
+        {
+            return repoContatti.GetAll();
 
-
+        }
     }
 }
