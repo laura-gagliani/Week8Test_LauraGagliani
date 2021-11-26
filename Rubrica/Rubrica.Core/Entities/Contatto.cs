@@ -15,18 +15,7 @@ namespace Rubrica.Core.Entities
         public List<Indirizzo> Indirizzi { get; set; } = new List<Indirizzo>();
 
 
-        public Contatto()
-        {
-
-        }
-        public Contatto(int id, string nome, string cognome)
-        {
-            IdContatto = id;
-            Nome = nome;
-            Cognome = cognome;
-        }
-
-
+        
 
         public override string ToString()
         {

@@ -10,5 +10,9 @@ namespace Rubrica.Core.BusinessLayer
     public interface IBusinessLayer
     {
         List<Contatto> GetAllContatti();
+        Esito AddContatto(string nome, string cognome);
+        Contatto GetContattoById(int idContatto);
+        Esito AddIndirizzo(Indirizzo i);
+        Esito DeleteContatto(Contatto c);
     }
 }

@@ -10,6 +10,7 @@ namespace Rubrica.Core.RepoInterfaces
     public interface IRepositoryContatti :IRepository<Contatto>
     {
         List<Contatto> GetAll();
-
+        Contatto GetById(int idContatto);
+        bool Delete(Contatto c);
     }
 }

@@ -8,6 +8,7 @@ namespace Rubrica.Core.RepoInterfaces
 {
     public interface IRepository<T>
     {
-        T Add(T item);
+        
+        bool Add(T item);
     }
 }

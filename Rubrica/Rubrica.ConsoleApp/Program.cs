@@ -51,17 +51,87 @@ namespace Rubrica.ConsoleApp
 
         private static void EliminaContatto()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\nQuale contatto vuoi rimuovere dalla rubrica?");
+            VisualizzaContatti();
+            Console.WriteLine("Digita l'ID del contatto prescelto:");
+            int idContatto = GetInt();
+
+            Contatto c = bl.GetContattoById(idContatto);
+
+            if (c != null)
+            {
+                Esito e = bl.DeleteContatto(c);
+                Console.WriteLine(e.Messaggio);
+
+            }
+            else
+                Console.WriteLine("Errore! Nessun contatto trovato con questo ID");
+
         }
 
         private static void AggiungiIndirizzo()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\nA quale contatto desideri associare il nuovo indirizzo?");
+            VisualizzaContatti();
+            Console.WriteLine("Digita l'ID del contatto prescelto:");
+            int idContatto = GetInt();
+
+            Contatto c = bl.GetContattoById(idContatto);
+
+            if (c != null)
+            {
+                Indirizzo i = new Indirizzo();
+                i.Contatto = c;
+                i.IdContatto = c.IdContatto;
+                
+
+                Console.WriteLine("\n----Inserimento Dati----");
+                Console.Write("Tipologia: ");
+                i.Tipologia = Console.ReadLine();
+                Console.Write("Via: ");
+                i.Via = Console.ReadLine();
+                Console.Write("Città: ");
+                i.Citta = Console.ReadLine();
+                Console.Write("CAP: ");
+                i.CAP = GetInt();
+                Console.Write("Provincia: ");
+                i.Provincia = Console.ReadLine();
+                Console.Write("Nazione: ");
+                i.Nazione = Console.ReadLine();
+                Console.WriteLine("-------------------------\n");
+
+                Esito aggiunta = bl.AddIndirizzo(i);
+                Console.WriteLine(aggiunta.Messaggio);
+
+            }
+            else
+                Console.WriteLine("Errore! Nessun contatto trovato con questo ID");
+
+        }
+
+        private static int GetInt()
+        {
+            bool parse;
+            int choice;
+            do
+            {
+                parse = int.TryParse(Console.ReadLine(), out choice);
+            } while (!parse);
+            return choice;
         }
 
         private static void AggiungiContatto()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\n----Inserimento Dati----");
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+            Console.Write("Cognome: ");
+            string cognome = Console.ReadLine();
+            Console.WriteLine("-------------------------\n");
+
+            Esito esito = bl.AddContatto(nome, cognome);
+            Console.WriteLine(esito.Messaggio);
+
         }
 
         private static void VisualizzaContatti()

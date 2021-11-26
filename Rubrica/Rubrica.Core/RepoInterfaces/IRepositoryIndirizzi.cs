@@ -9,6 +9,6 @@ namespace Rubrica.Core.RepoInterfaces
 {
     public interface IRepositoryIndirizzi :IRepository<Indirizzo>
     {
-        Indirizzo Delete(Indirizzo i);
+        
     }
 }

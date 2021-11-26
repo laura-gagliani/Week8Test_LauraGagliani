@@ -18,14 +18,55 @@ namespace Rubrica.RepositoryMock
 
         };
 
-        public Contatto Add(Contatto item)
+        public bool Add(Contatto item)
         {
-            throw new NotImplementedException();
+            item.IdContatto = GenerateId();
+            contatti.Add(item);
+            return true;
+        }
+
+        private int GenerateId()
+        {
+            if (contatti.Count == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                int max =0;
+                foreach (var item in contatti)
+                {
+                    if (item.IdContatto > max)
+                    {
+                        max = item.IdContatto;
+                    }
+                }
+                max++;
+                return max;
+            }
         }
 
         public List<Contatto> GetAll()
         {
             return contatti;
+        }
+
+        public Contatto GetById(int idContatto)
+        {
+            foreach (var item in contatti)
+            {
+                if (item.IdContatto == idContatto)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public bool Delete(Contatto c)
+        {
+            contatti.Remove(c);
+            return true;
         }
     }
 }

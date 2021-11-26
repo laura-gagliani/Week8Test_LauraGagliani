@@ -10,14 +10,15 @@ namespace Rubrica.RepositoryMock
 {
     public class IndirizziMock : IRepositoryIndirizzi
     {
-        public Indirizzo Add(Indirizzo item)
+        public static List<Indirizzo> indirizzi = new List<Indirizzo>();
+
+        public bool Add(Indirizzo item)
         {
-            throw new NotImplementedException();
+            indirizzi.Add(item);
+            return true;
         }
 
-        public Indirizzo Delete(Indirizzo i)
-        {
-            throw new NotImplementedException();
-        }
+       
+
     }
 }
