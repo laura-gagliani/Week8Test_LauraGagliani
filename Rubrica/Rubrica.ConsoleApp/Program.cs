@@ -1,5 +1,6 @@
 ﻿using Rubrica.Core.BusinessLayer;
 using Rubrica.Core.Entities;
+using Rubrica.RepositoryADO;
 using Rubrica.RepositoryMock;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,8 @@ namespace Rubrica.ConsoleApp
 {
     class Program
     {
-        private static readonly IBusinessLayer bl = new MainBusinessLayer(new ContattiMock(), new IndirizziMock());
+        //private static readonly IBusinessLayer bl = new MainBusinessLayer(new ContattiMock(), new IndirizziMock());
+        private static readonly IBusinessLayer bl = new MainBusinessLayer(new ContattiADO(), new IndirizziADO());
 
         static void Main(string[] args)
         {
@@ -58,7 +60,7 @@ namespace Rubrica.ConsoleApp
 
             Contatto c = bl.GetContattoById(idContatto);
 
-            if (c != null)
+            if (c.Nome != null && c.Cognome != null)
             {
                 Esito e = bl.DeleteContatto(c);
                 Console.WriteLine(e.Messaggio);

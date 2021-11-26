@@ -18,7 +18,19 @@ namespace Rubrica.RepositoryMock
             return true;
         }
 
-       
+        public List<Indirizzo> GetByIdContatto(int idContatto)
+        {
+            List<Indirizzo> indirizziContatto = new List<Indirizzo>();
+
+            foreach (var item in indirizzi)
+            {
+                if (item.IdContatto == idContatto)
+                {
+                    indirizziContatto.Add(item);
+                }
+            }
+            return indirizziContatto;
+        }
 
     }
 }

@@ -19,7 +19,7 @@ namespace Rubrica.Core.Entities
 
         public override string ToString()
         {
-            return $"Id: {IdContatto} - Nome: {Nome} {Cognome} - Indirizzi associati: {Indirizzi.Count}";
+            return $"Id: {IdContatto} - Nome: {Nome} {Cognome}";
         }
 
     }

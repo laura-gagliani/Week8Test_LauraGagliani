@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Rubrica.Core.RepoInterfaces
 {
-    public interface IRepositoryIndirizzi :IRepository<Indirizzo>
+    public interface IRepositoryIndirizzi : IRepository<Indirizzo>
     {
-        
+        List<Indirizzo> GetByIdContatto(int idContatto);
     }
 }

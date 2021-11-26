@@ -51,7 +51,8 @@ namespace Rubrica.Core.BusinessLayer
 
         public Esito DeleteContatto(Contatto c)
         {
-            if (c.Indirizzi.Count == 0)
+            List<Indirizzo> indirizziUtente = repoIndirizzi.GetByIdContatto(c.IdContatto);
+            if (indirizziUtente.Count == 0)
             {
                 repoContatti.Delete(c);
                 return new Esito { Messaggio = "Contatto eliminato dalla rubrica", isOk = true };
