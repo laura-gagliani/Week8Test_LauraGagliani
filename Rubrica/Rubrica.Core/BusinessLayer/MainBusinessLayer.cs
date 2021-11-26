@@ -41,7 +41,7 @@ namespace Rubrica.Core.BusinessLayer
         public Esito AddIndirizzo(Indirizzo i)
         {
             bool isAdded = repoIndirizzi.Add(i);
-            i.Contatto.Indirizzi.Add(i);
+
             if (isAdded)
                 return new Esito { Messaggio = "Indirizzo inserito in rubrica", isOk = true };
             else
