@@ -1,11 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Rubrica.Core\Rubrica.Core.csproj" />
+    <ProjectReference Include="..\Rubrica.RepositoryMock\Rubrica.RepositoryMock.csproj" />
   </ItemGroup>
 
 </Project>
